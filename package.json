@@ -1,0 +1,29 @@
+{
+  "name": "mocha-cakes-2",
+  "version": "0.0.1",
+  "description": "A version of quangv's mocha-cakes without coffeescript ",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha ./test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iensu/mocha-cakes-2.git"
+  },
+  "keywords": [
+    "mocha",
+    "cakes",
+    "bdd",
+    "tdd",
+    "test",
+    "node",
+    "javascript",
+    "nodejs"
+  ],
+  "author": "Jens Östlund",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/iensu/mocha-cakes-2/issues"
+  },
+  "homepage": "https://github.com/iensu/mocha-cakes-2#readme"
+}
