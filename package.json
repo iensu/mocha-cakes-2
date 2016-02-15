@@ -25,5 +25,13 @@
   "bugs": {
     "url": "https://github.com/iensu/mocha-cakes-2/issues"
   },
-  "homepage": "https://github.com/iensu/mocha-cakes-2#readme"
+  "homepage": "https://github.com/iensu/mocha-cakes-2#readme",
+  "dependencies": {
+    "colors": "^1.1.2",
+    "lodash": "^4.3.0",
+    "minimist": "^1.2.0"
+  },
+  "devDependencies": {
+    "mocha": "^2.4.5"
+  }
 }
