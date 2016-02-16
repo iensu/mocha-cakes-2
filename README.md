@@ -47,4 +47,4 @@ Feature('Some feature', () => {
 
 The result will look something like this:
 
-<img src="doc/example-feature.png" width="200" />
+<img src="doc/example-feature.png" width="500" />
