@@ -27,7 +27,7 @@ describe('Mocha Cakes Feature with `doc` Reporter', function () {
       scenarioTitle.should.equal('Scenario: Testing mocha cakes');
     });
 
-    it('should have the correct `Given` declaration', function () {
+    it('should have the correct `Given` clause', function () {
       var given = $('section:root > dl > section > dl > section')[0];
       $(given).find('dt').text().trim().should.equal('Given: that 1 + 1 is 2');
       $(given).find('dd > pre > code').text().should.equal('(1 + 1).should.equal(2);');

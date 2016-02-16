@@ -16,14 +16,13 @@ var mocha = new MochaInterface(argv);
 var reporter = helpers.reporter(argv);
 
 var options = {
-  label: true,
   style: reporter !== 'doc',
   reporter: reporter
 };
 
 var api = {
-  Feature: feature(mocha, _.assign({ style: true, whitespace: true }, options)),
-  Scenario: scenario(mocha, _.assign({ style: true, whitespace: true }, options)),
+  Feature: feature(mocha, options),
+  Scenario: scenario(mocha, options),
 
   Given: gwtabiClause(mocha, 'Given: ', options),
   When: gwtabiClause(mocha, ' When: ', options),
@@ -31,6 +30,7 @@ var api = {
   And: gwtabiClause(mocha, '  And: ', _.assign({ dark: true }, options)),
   But: gwtabiClause(mocha, '  But: ', _.assign({ dark: true }, options)),
   I: gwtabiClause(mocha, '  I ', _.assign({ white: true }, options)),
+
   Describe: describe(mocha, options),
   System: system(mocha, options)
 };
