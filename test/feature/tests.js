@@ -2,7 +2,7 @@
 
 var cheerio = require('cheerio');
 
-var execTestFile = require('./helpers').execTestFile;
+var execTestFile = require('./../helpers').execTestFile;
 
 describe('Mocha Cakes Feature with `doc` Reporter', function () {
 
@@ -11,7 +11,7 @@ describe('Mocha Cakes Feature with `doc` Reporter', function () {
     var $;
 
     before(function () {
-      return execTestFile('sample-tests/simple-feature-test.js')
+      return execTestFile('feature/sample-tests/simple-feature-test.js')
         .then(function (result) {
           $ = cheerio.load(result);
         });

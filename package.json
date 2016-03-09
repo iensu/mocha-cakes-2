@@ -4,7 +4,7 @@
   "description": "A version of quangv's mocha-cakes without coffeescript ",
   "main": "index.js",
   "scripts": {
-    "test": "mocha ./test/test.js"
+    "test": "mocha ./test/**/*tests.js"
   },
   "repository": {
     "type": "git",
@@ -34,6 +34,8 @@
   "devDependencies": {
     "bluebird": "^3.3.1",
     "cheerio": "^0.20.0",
-    "mocha": "^2.4.5"
+    "mocha": "^2.4.5",
+    "sinon": "^1.17.3",
+    "sinon-chai": "^2.8.0"
   }
 }

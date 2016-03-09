@@ -1,6 +1,6 @@
 'use-strict';
 
-require('./../../mocha-cakes-2');
+require('./../../../mocha-cakes-2');
 
 Feature('Mocha Cakes', function () {
 
