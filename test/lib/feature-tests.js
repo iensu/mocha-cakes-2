@@ -3,46 +3,93 @@
 var sinon = require('sinon');
 
 var feature = require('../../lib/feature.js');
+var fakeMocha = require('../helpers.js').fakeMocha();
 
 describe('feature', function () {
 
   var dummyFunction = function () { console.log('I am a dummy function') };
-  var mockMocha = {
-    describe: function () {},
-    it: function () {}
-  };
 
   beforeEach(function () {
-    sinon.stub(mockMocha, 'describe');
-    sinon.stub(mockMocha, 'it');
+    sinon.spy(fakeMocha, 'describe');
+    sinon.spy(fakeMocha, 'it');
   });
 
   afterEach(function () {
-    mockMocha.describe.restore();
-    mockMocha.it.restore();
+    fakeMocha.describe.restore();
+    fakeMocha.it.restore();
   });
 
   it('should call describe', function () {
 
     var label = 'I am a feature';
 
-    feature(mockMocha)(label, dummyFunction);
+    feature(fakeMocha)(label, dummyFunction);
 
-    mockMocha.it.should.not.have.been.called;
-    mockMocha.describe.should.have.been.called;
+    fakeMocha.it.should.not.have.been.called;
+    fakeMocha.describe.should.have.been.called;
   });
 
   it('should prepend \'Feature: \' and append a newline to the label', function () {
     var label = 'prepend and append';
 
-    feature(mockMocha)(label, dummyFunction);
+    feature(fakeMocha)(label, dummyFunction);
 
-    mockMocha.describe.should.have.been.calledWith('Feature: ' + label + '\n');
+    fakeMocha.describe.should.have.been.calledWith('Feature: ' + label + '\n');
   });
 
   it('should send along the provided test function', function () {
-    feature(mockMocha)('blaha', dummyFunction);
+    feature(fakeMocha)('blaha', dummyFunction);
 
-    mockMocha.describe.should.have.been.calledWith('Feature: blaha\n', dummyFunction);
+    fakeMocha.describe.should.have.been.calledWith('Feature: blaha\n', dummyFunction);
+  });
+
+  describe('feature.only', () => {
+
+    beforeEach(function () {
+      sinon.spy(fakeMocha.describe, 'only');
+    });
+
+    afterEach(function () {
+      fakeMocha.describe.only.restore();
+    });
+
+    it('should NOT call describe', function () {
+      var label = 'only me';
+      feature(fakeMocha).only(label, dummyFunction);
+
+      fakeMocha.describe.should.not.have.been.called;
+    });
+
+    it('should call describe.only', function () {
+      var label = 'only me';
+      feature(fakeMocha).only(label, dummyFunction);
+
+      fakeMocha.describe.only.should.have.been.calledWith('Feature: ' + label + '\n', dummyFunction);
+    });
+  });
+
+  describe('feature.skip', () => {
+
+    beforeEach(function () {
+      sinon.spy(fakeMocha.describe, 'skip');
+    });
+
+    afterEach(function () {
+      fakeMocha.describe.skip.restore();
+    });
+
+    it('should NOT call describe', function () {
+      var label = 'skip me';
+      feature(fakeMocha).skip(label, dummyFunction);
+
+      fakeMocha.describe.should.not.have.been.called;
+    });
+
+    it('should call describe.skip', function () {
+      var label = 'skip me';
+      feature(fakeMocha).skip(label, dummyFunction);
+
+      fakeMocha.describe.skip.should.have.been.calledWith('Feature: ' + label + '\n', dummyFunction);
+    });
   });
 });
