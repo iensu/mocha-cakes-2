@@ -4,7 +4,8 @@
   "description": "A version of quangv's mocha-cakes without coffeescript ",
   "main": "index.js",
   "scripts": {
-    "test": "mocha ./test/**/*tests.js"
+    "test": "mocha ./test/**/*tests.js",
+    "test:watch": "mocha ./test/**/*tests.js --watch -R dot"
   },
   "repository": {
     "type": "git",
