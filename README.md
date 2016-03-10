@@ -68,31 +68,4 @@ Feature('Some feature', () => {
 
 In the example above, only the second scenario will execute.
 
-`skip` of course works on the other clauses as well, such as `Given`, `And`, etc.
-
-### `<CLAUSE>.only`
-
-You can skip a test by using the `<CLAUSE>.skip` function, just as in mocha!
-
-```bash
-Feature('Some feature', () => {
-
-  Scenario.only('Only I will run!', () => {
-    // ...
-  });
-
-  Scenario('Case 2', () => {
-    // ...
-  });
-
-  Scenario('Case 3', () => {
-    // ...
-  });
-
-  // ...
-});
-```
-
-In the example above, only the first scenario will execute.
-
-Just as with `skip`, `only` works on all other clauses as well.
+`skip` works on the other clauses as well, such as `Given`, `And`, etc.
