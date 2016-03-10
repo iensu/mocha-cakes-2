@@ -12,6 +12,23 @@ function execTestFile(file, opts) {
   return execFile('mocha', args, { env: testEnv });
 }
 
+function fakeMocha() {
+
+  var describe = function () {};
+  describe.skip = function () {};
+  describe.only = function () {};
+
+  var it = function () {};
+  it.skip = function () {};
+  it.only = function () {};
+
+  return {
+    describe: describe,
+    it: it
+  };
+}
+
 module.exports = {
-  execTestFile: execTestFile
+  execTestFile: execTestFile,
+  fakeMocha: fakeMocha
 };
