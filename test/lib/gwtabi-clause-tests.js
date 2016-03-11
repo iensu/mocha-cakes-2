@@ -1,6 +1,7 @@
 'use strict';
 
 var sinon = require('sinon');
+var colors = require('colors');
 
 var gwtabiClause = require('../../lib/gwtabi-clause');
 var fakeMocha = require('../helpers').fakeMocha();
@@ -38,7 +39,7 @@ describe('gwtabiClause', function () {
     helpers.describeItNested.should.have.been.calledWith(fakeMocha, command, label + message, dummyFunction);
   });
 
-  describe('gwtabiClause.only', () => {
+  describe('gwtabiClause.only', function () {
 
     beforeEach(function () {
       sinon.spy(fakeMocha.describe, 'only');
@@ -67,7 +68,7 @@ describe('gwtabiClause', function () {
     });
   });
 
-  describe('gwtabiClause.skip', () => {
+  describe('gwtabiClause.skip', function () {
 
     beforeEach(function () {
       sinon.spy(fakeMocha.describe, 'skip');
@@ -92,7 +93,9 @@ describe('gwtabiClause', function () {
 
       gwtabiClause(fakeMocha, label).skip(message, dummyFunction);
 
-      helpers.describeItNested.skip.should.have.been.calledWith(fakeMocha, command, label + message, dummyFunction);
+      var nestedMessage = colors.bold.cyan(label + message);
+
+      helpers.describeItNested.skip.should.have.been.calledWith(fakeMocha, command, nestedMessage, dummyFunction);
     });
   });
 });

@@ -37,7 +37,7 @@ describe('system', function () {
     helpers.describeItNested.should.have.been.calledWith(fakeMocha, command, ' [system] ' + message, dummyFunction);
   });
 
-  describe('system.only', () => {
+  describe('system.only', function () {
 
     beforeEach(function () {
       sinon.spy(fakeMocha.describe, 'only');
@@ -65,7 +65,7 @@ describe('system', function () {
     });
   });
 
-  describe('system.skip', () => {
+  describe('system.skip', function () {
 
     beforeEach(function () {
       sinon.spy(fakeMocha.describe, 'skip');

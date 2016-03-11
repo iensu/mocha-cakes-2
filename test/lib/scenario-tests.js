@@ -54,7 +54,7 @@ describe('scenario', function () {
     fakeMocha.describe.should.have.been.calledWith(expectedLabel, emptyFunc);
   });
 
-  describe('scenario.only', () => {
+  describe('scenario.only', function () {
 
     beforeEach(function () {
       sinon.spy(fakeMocha.describe, 'only');
@@ -79,7 +79,7 @@ describe('scenario', function () {
     });
   });
 
-  describe('scenario.skip', () => {
+  describe('scenario.skip', function () {
 
     beforeEach(function () {
       sinon.spy(fakeMocha.describe, 'skip');

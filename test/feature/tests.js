@@ -28,33 +28,43 @@ describe('Mocha Cakes Feature with `doc` Reporter', function () {
     });
 
     it('should have the correct `Given` clause', function () {
-      var given = $('section:root > dl > section > dl > section')[0];
-      $(given).find('dt').text().trim().should.equal('Given: that 1 + 1 is 2');
-      $(given).find('dd > pre > code').text().should.equal('(1 + 1).should.equal(2);');
+      var given = $('section:root > dl > section > dl > dt')[0];
+      $(given).text().trim().should.equal('Given: that 1 + 1 is 2');
+
+      var test = $('section:root > dl > section > dl > dd')[0];
+      $(test).text().should.equal('(1 + 1).should.equal(2);');
     });
 
     it('should have the correct `And` clause', function () {
-      var and = $('section:root > dl > section > dl > section')[1];
-      $(and).find('dt').text().trim().should.equal('And: 2 + 2 is 4');
-      $(and).find('dd > pre > code').text().should.equal('(2 + 2).should.equal(4);');
+      var and = $('section:root > dl > section > dl > dt')[1];
+      $(and).text().trim().should.equal('And: 2 + 2 is 4');
+
+      var test = $('section:root > dl > section > dl > dd')[1];
+      $(test).text().should.equal('(2 + 2).should.equal(4);');
     });
 
     it('should have the correct `But` clause', function () {
-      var but = $('section:root > dl > section > dl > section')[2];
-      $(but).find('dt').text().trim().should.equal('But: 2 + 3 is not 4');
-      $(but).find('dd > pre > code').text().should.equal('(2 + 3).should.not.equal(4);');
+      var but = $('section:root > dl > section > dl > dt')[2];
+      $(but).text().trim().should.equal('But: 2 + 3 is not 4');
+
+      var test = $('section:root > dl > section > dl > dd')[2];
+      $(test).text().should.equal('(2 + 3).should.not.equal(4);');
     });
 
     it('should have the correct `When` clause', function () {
-      var when = $('section:root > dl > section > dl > section')[3];
-      $(when).find('dt').text().trim().should.equal('When: something is true');
-      $(when).find('dd > pre > code').text().should.equal('true.should.equal(true);');
+      var when = $('section:root > dl > section > dl > dt')[3];
+      $(when).text().trim().should.equal('When: something is true');
+
+      var test = $('section:root > dl > section > dl > dd')[3];
+      $(test).text().should.equal('true.should.equal(true);');
     });
 
     it('should have the correct `Then` clause', function () {
-      var then = $('section:root > dl > section > dl > section')[4];
-      $(then).find('dt').text().trim().should.equal('Then: everything should be ok');
-      $(then).find('dd > pre > code').text().should.equal('"everything".should.be.ok;');
+      var then = $('section:root > dl > section > dl > dt')[4];
+      $(then).text().trim().should.equal('Then: everything should be ok');
+
+      var test = $('section:root > dl > section > dl > dd')[4];
+      $(test).text().should.equal('"everything".should.be.ok;');
     });
   });
 });

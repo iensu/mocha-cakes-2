@@ -43,7 +43,7 @@ describe('feature', function () {
     fakeMocha.describe.should.have.been.calledWith('Feature: blaha\n', dummyFunction);
   });
 
-  describe('feature.only', () => {
+  describe('feature.only', function () {
 
     beforeEach(function () {
       sinon.spy(fakeMocha.describe, 'only');
@@ -68,7 +68,7 @@ describe('feature', function () {
     });
   });
 
-  describe('feature.skip', () => {
+  describe('feature.skip', function () {
 
     beforeEach(function () {
       sinon.spy(fakeMocha.describe, 'skip');
