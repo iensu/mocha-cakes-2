@@ -49,11 +49,24 @@ The result will look something like this:
 
 <img src="doc/example-feature.png" width="500" />
 
-### `<CLAUSE>.skip`
 
-You can skip a test by using the `<CLAUSE>.skip` function, just as in mocha!
+## API
 
-```bash
+The following test clauses are available:
+
+* `Feature`
+  * `Scenario`
+      - `Given`
+      - `When`
+      - `Then`
+      - `And`
+      - `But`
+
+### `.skip`
+
+Skips a test clause.
+
+```javascript
 Feature('Some feature', () => {
 
   Scenario.skip('Skipped scenario', () => {
@@ -66,6 +79,29 @@ Feature('Some feature', () => {
 });
 ```
 
-In the example above, only the second scenario will execute.
+<img src="doc/skipped.png" width="400" />
 
-`skip` works on the other clauses as well, such as `Given`, `And`, etc.
+### `.only`
+
+Only run the specified test clause.
+
+```javascript
+Feature('Some feature', () => {
+
+  Scenario('First scenario', () => {
+    // ...
+  });
+
+  Scenario('Second scenario', () => {
+    // ...
+  });
+
+  Scenario.only('Only I will run!', () => {
+    // ...
+  });
+
+  // ...
+});
+```
+
+<img src="doc/only.png" width="400" />
