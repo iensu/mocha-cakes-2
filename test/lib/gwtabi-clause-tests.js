@@ -23,12 +23,6 @@ describe('gwtabiClause', function () {
     helpers.describeItNested.restore();
   });
 
-  it('should call `describe`', function () {
-    gwtabiClause(fakeMocha, 'LABEL: ')('some test', dummyFunction);
-
-    fakeMocha.describe.should.have.been.called;
-  });
-
   it('should nest the provided arguments', function () {
     var command = 'it',
         label = 'LABEL: ',

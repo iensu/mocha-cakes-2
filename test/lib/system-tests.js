@@ -22,12 +22,6 @@ describe('system', function () {
     helpers.describeItNested.restore();
   });
 
-  it('should call `describe`', function () {
-    system(fakeMocha)('some test', dummyFunction);
-
-    fakeMocha.describe.should.have.been.called;
-  });
-
   it('should nest the provided arguments', function () {
     var command = 'it',
         message = 'some text';

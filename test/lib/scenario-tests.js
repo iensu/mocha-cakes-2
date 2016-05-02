@@ -34,20 +34,20 @@ describe('scenario', function () {
 
     scenario(fakeMocha)(label, dummyFunction);
 
-    fakeMocha.describe.should.have.been.calledWith('\n    Scenario: ' + label);
+    fakeMocha.describe.should.have.been.calledWith('Scenario: ' + label);
   });
 
   it('should send along the provided test function', function () {
     scenario(fakeMocha)('blaha', dummyFunction);
 
-    fakeMocha.describe.should.have.been.calledWith('\n    Scenario: blaha', dummyFunction);
+    fakeMocha.describe.should.have.been.calledWith('Scenario: blaha', dummyFunction);
   });
 
   it('should skip scenario if first argument is falsy', function () {
     var label = 'some scenario';
     scenario(fakeMocha)(false, label, dummyFunction);
 
-    var expectedLabel = '\n    (skipped) ' + label;
+    var expectedLabel = '(skipped) ' + label;
     var emptyFunc = sinon.match(function (val) {
       return val.toString() === (function () {}).toString();
     });
@@ -75,7 +75,7 @@ describe('scenario', function () {
       var label = 'only me';
       scenario(fakeMocha).only(label, dummyFunction);
 
-      fakeMocha.describe.only.should.have.been.calledWith('\n    Scenario: ' + label, dummyFunction);
+      fakeMocha.describe.only.should.have.been.calledWith('Scenario: ' + label, dummyFunction);
     });
   });
 
@@ -100,7 +100,7 @@ describe('scenario', function () {
       var label = 'skip me';
       scenario(fakeMocha).skip(label, dummyFunction);
 
-      fakeMocha.describe.skip.should.have.been.calledWith('\n    Scenario: ' + label, dummyFunction);
+      fakeMocha.describe.skip.should.have.been.calledWith('Scenario: ' + label, dummyFunction);
     });
   });
 });
