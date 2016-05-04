@@ -1,6 +1,6 @@
 {
   "name": "mocha-cakes-2",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "A version of quangv's mocha-cakes without coffeescript ",
   "main": "index.js",
   "scripts": {
@@ -34,6 +34,7 @@
   },
   "devDependencies": {
     "bluebird": "^3.3.1",
+    "chai": "^3.5.0",
     "cheerio": "^0.20.0",
     "mocha": "^2.4.5",
     "sinon": "^1.17.3",

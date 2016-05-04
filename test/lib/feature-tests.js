@@ -34,13 +34,13 @@ describe('feature', function () {
 
     feature(fakeMocha)(label, dummyFunction);
 
-    fakeMocha.describe.should.have.been.calledWith('Feature: ' + label + '\n');
+    fakeMocha.describe.should.have.been.calledWith('Feature: ' + label);
   });
 
   it('should send along the provided test function', function () {
     feature(fakeMocha)('blaha', dummyFunction);
 
-    fakeMocha.describe.should.have.been.calledWith('Feature: blaha\n', dummyFunction);
+    fakeMocha.describe.should.have.been.calledWith('Feature: blaha', dummyFunction);
   });
 
   describe('feature.only', function () {
@@ -64,7 +64,7 @@ describe('feature', function () {
       var label = 'only me';
       feature(fakeMocha).only(label, dummyFunction);
 
-      fakeMocha.describe.only.should.have.been.calledWith('Feature: ' + label + '\n', dummyFunction);
+      fakeMocha.describe.only.should.have.been.calledWith('Feature: ' + label, dummyFunction);
     });
   });
 
@@ -89,7 +89,7 @@ describe('feature', function () {
       var label = 'skip me';
       feature(fakeMocha).skip(label, dummyFunction);
 
-      fakeMocha.describe.skip.should.have.been.calledWith('Feature: ' + label + '\n', dummyFunction);
+      fakeMocha.describe.skip.should.have.been.calledWith('Feature: ' + label, dummyFunction);
     });
   });
 });
