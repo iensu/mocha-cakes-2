@@ -28,15 +28,15 @@
   },
   "homepage": "https://github.com/iensu/mocha-cakes-2#readme",
   "dependencies": {
-    "colors": "^1.1.2",
-    "lodash": "^4.3.0",
-    "minimist": "^1.2.0"
+    "colors": "1.1.2",
+    "lodash": "4.17.2",
+    "minimist": "1.2.0"
   },
   "devDependencies": {
-    "bluebird": "^3.3.1",
-    "cheerio": "^0.20.0",
-    "mocha": "^2.4.5",
-    "sinon": "^1.17.3",
-    "sinon-chai": "^2.8.0"
+    "bluebird": "3.4.6",
+    "cheerio": "0.22.0",
+    "mocha": "3.2.0",
+    "sinon": "1.17.6",
+    "sinon-chai": "2.8.0"
   }
 }
