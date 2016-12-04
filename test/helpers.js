@@ -1,34 +1,22 @@
 'use strict';
 
-var _ = require('lodash');
 var Promise = require('bluebird');
 var execFile = Promise.promisify(require('child_process').execFile);
+var path = require('path');
 
-var testEnv = _.assign({}, process.env, { NODE_PATH: __dirname });
+var testEnv = Object.assign({}, process.env, { NODE_PATH: __dirname });
 
 function execTestFile(file, opts) {
-  opts = _.assign({ reporter: 'doc' }, opts);
-  var args = ['--reporter', opts.reporter, __dirname + '/' + file];
+  opts = Object.assign({ reporter: 'spec' }, opts);
+  var args = [
+    '--require', path.join(__dirname, '../mocha-cakes.js'),
+    '--ui', 'mocha-cakes',
+    '--reporter', opts.reporter,
+    path.join(__dirname, file)
+  ];
   return execFile('mocha', args, { env: testEnv });
 }
 
-function fakeMocha() {
-
-  var describe = function () {};
-  describe.skip = function () {};
-  describe.only = function () {};
-
-  var it = function () {};
-  it.skip = function () {};
-  it.only = function () {};
-
-  return {
-    describe: describe,
-    it: it
-  };
-}
-
 module.exports = {
-  execTestFile: execTestFile,
-  fakeMocha: fakeMocha
+  execTestFile: execTestFile
 };
