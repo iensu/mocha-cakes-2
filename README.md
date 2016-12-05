@@ -12,10 +12,10 @@ npm install --save-dev mocha-cakes-2
 
 ## Usage
 
-You need to specify `mocha-cakes` as a mocha integration by adding the option `--ui mocha-cakes` to your `mocha` command:
+You need to specify `mocha-cakes` as a mocha integration by adding the option `--ui mocha-cakes-ui` to your `mocha` command:
 
 ``` javascript
-mocha --ui mocha-cakes path/to/my/tests
+mocha --ui mocha-cakes-ui path/to/my/tests
 ```
 
 You can also specify it in your [`mocha.opts`](https://mochajs.org/#mochaopts) file:
@@ -59,7 +59,7 @@ The common Mocha functions (`describe`, `it`, `before`, `after`, etc) are also a
 
 ### Upgrading from version 1.x
 
-Replace the `require('mocha-cakes-2')` statement(s) with the `--ui mocha-cakes` option described above.
+Replace the `require('mocha-cakes-2')` statement(s) with the `--ui mocha-cakes-ui` option described above.
 Mocha Cakes v2 does not look as flashy as v1.x since v2 leaves the styling to mocha and the specified reporter.
 
 ## API

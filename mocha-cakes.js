@@ -4,7 +4,7 @@ var Mocha = require('mocha'),
     Suite = require('mocha/lib/suite'),
     Test  = require('mocha/lib/test');
 
-Mocha.interfaces['mocha-cakes'] = module.exports = mochaCakes;
+Mocha.interfaces['mocha-cakes-ui'] = module.exports = mochaCakes;
 
 function mochaCakes(suite) {
   var suites = [suite];
