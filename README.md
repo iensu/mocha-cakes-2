@@ -53,7 +53,7 @@ Feature('Some feature', () => {
 
 The result will look something like this:
 
-<img src="doc/example-feature.png" width="500" />
+<img src="doc/example-feature-v2.png" width="500" />
 
 The common Mocha functions (`describe`, `it`, `before`, `after`, etc) are also available and can be used together with Mocha Cakes.
 
@@ -91,7 +91,7 @@ Feature('Some feature', () => {
 });
 ```
 
-<img src="doc/skipped.png" width="400" />
+<img src="doc/skipped-v2.png" width="400" />
 
 ### `.only`
 
@@ -116,7 +116,7 @@ Feature('Some feature', () => {
 });
 ```
 
-<img src="doc/only.png" width="400" />
+<img src="doc/only-v2.png" width="400" />
 
 ## Acknowledgements
 
