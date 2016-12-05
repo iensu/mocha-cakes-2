@@ -1,7 +1,10 @@
 # Mocha Cakes 2
 
-Mocha Cakes is a [Gherkin](https://github.com/cucumber/cucumber/wiki/Gherkin)/[Cucumber](https://cucumber.io/) syntax integration for the [Mocha](https://mochajs.org/) testing framework.
+This is a version of **quangv**'s [mocha-cakes](https://github.com/quangv/mocha-cakes/) not relying on CoffeeScript.
 
+The reason for doing this is that **quangv**'s original code haven't been updated in over four years now, and it seems to be an abandoned project.
+
+I have tried to stay as compatible as possible with older versions of NodeJS, avoiding such niceties as arrow functions, spreading etc.
 ## Installation
 
 NPM:
@@ -12,20 +15,11 @@ npm install --save-dev mocha-cakes-2
 
 ## Usage
 
-You need to specify `mocha-cakes` as a mocha integration by adding the option `--ui mocha-cakes-ui` to your `mocha` command:
-
-``` javascript
-mocha --ui mocha-cakes-ui path/to/my/tests
-```
-
-You can also specify it in your [`mocha.opts`](https://mochajs.org/#mochaopts) file:
-
-``` javascript
---ui mocha-cakes
-```
+You just need to require `mocha-cakes-2` for the feature vocabulary to be accessible in the global scope:
 
 ```javascript
-require('chai').should();
+require('mocha-cakes-2');
+require('chai').should(); // very neat `should` assertions
 
 Feature('Some feature', () => {
 
@@ -53,18 +47,12 @@ Feature('Some feature', () => {
 
 The result will look something like this:
 
-<img src="doc/example-feature-v2.png" width="500" />
+<img src="doc/example-feature.png" width="500" />
 
-The common Mocha functions (`describe`, `it`, `before`, `after`, etc) are also available and can be used together with Mocha Cakes.
-
-### Upgrading from version 1.x
-
-Replace the `require('mocha-cakes-2')` statement(s) with the `--ui mocha-cakes-ui` option described above.
-Mocha Cakes v2 does not look as flashy as v1.x since v2 leaves the styling to mocha and the specified reporter.
 
 ## API
 
-The Mocha Cakes integration adds the following functions to the global scope:
+The following test clauses are available:
 
 * `Feature`
   * `Scenario`
@@ -76,7 +64,7 @@ The Mocha Cakes integration adds the following functions to the global scope:
 
 ### `.skip`
 
-Skips a test clause. Works on all test functions.
+Skips a test clause.
 
 ```javascript
 Feature('Some feature', () => {
@@ -91,11 +79,11 @@ Feature('Some feature', () => {
 });
 ```
 
-<img src="doc/skipped-v2.png" width="400" />
+<img src="doc/skipped.png" width="400" />
 
 ### `.only`
 
-Only run the specified test clause. Works on all test functions.
+Only run the specified test clause.
 
 ```javascript
 Feature('Some feature', () => {
@@ -116,8 +104,4 @@ Feature('Some feature', () => {
 });
 ```
 
-<img src="doc/only-v2.png" width="400" />
-
-## Acknowledgements
-
-Mocha Cakes 2 is heavily influenced by **quangv**'s [mocha-cakes](https://github.com/quangv/mocha-cakes/).
+<img src="doc/only.png" width="400" />

@@ -1,5 +1,7 @@
 'use-strict';
 
+require('./../../../mocha-cakes-2');
+
 Feature('Mocha Cakes', function () {
 
   Scenario('Testing mocha cakes', function () {
@@ -22,4 +24,5 @@ Feature('Mocha Cakes', function () {
       "everything".should.be.ok;
     });
   });
+
 });
