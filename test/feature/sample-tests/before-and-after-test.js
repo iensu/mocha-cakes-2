@@ -4,6 +4,14 @@ Feature('Mocha Cakes', function () {
 
   Scenario('Testing mocha cakes', function () {
 
+    before(function () {
+      console.log('before clause');
+    });
+
+    after(function () {
+      console.log('after clause');
+    })
+
     Given('that 1 + 1 is 2', function () {
       (1 + 1).should.equal(2);
     });

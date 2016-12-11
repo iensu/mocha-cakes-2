@@ -1,8 +1,8 @@
 {
   "name": "mocha-cakes-2",
   "version": "1.2.0",
-  "description": "A version of quangv's mocha-cakes without coffeescript ",
-  "main": "index.js",
+  "description": "A Mocha BDD integration",
+  "main": "mocha-cakes.js",
   "scripts": {
     "test": "mocha ./test/**/*tests.js",
     "test:watch": "mocha ./test/**/*tests.js --watch -R dot"
@@ -19,7 +19,9 @@
     "test",
     "node",
     "javascript",
-    "nodejs"
+    "nodejs",
+    "gherkin",
+    "cucumber"
   ],
   "author": "Jens Östlund (iensu)",
   "license": "ISC",
@@ -28,15 +30,10 @@
   },
   "homepage": "https://github.com/iensu/mocha-cakes-2#readme",
   "dependencies": {
-    "colors": "1.1.2",
-    "lodash": "4.17.2",
-    "minimist": "1.2.0"
+    "mocha": "3.2.0"
   },
   "devDependencies": {
     "bluebird": "3.4.6",
-    "cheerio": "0.22.0",
-    "mocha": "3.2.0",
-    "sinon": "1.17.6",
-    "sinon-chai": "2.8.0"
+    "chai": "3.5.0"
   }
 }
