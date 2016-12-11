@@ -59,8 +59,7 @@ The common Mocha functions (`describe`, `it`, `before`, `after`, etc) are also a
 
 ### Upgrading from version 1.x
 
-Replace the `require('mocha-cakes-2')` statement(s) with the `--ui mocha-cakes-2` option described above.
-Mocha Cakes v2 does not look as flashy as v1.x since v2 leaves the styling to mocha and the specified reporter.
+Replace the `require('mocha-cakes-2')` statement(s) with the `--ui mocha-cakes-2` option as described above.
 
 ## API
 
