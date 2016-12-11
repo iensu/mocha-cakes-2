@@ -30,7 +30,7 @@ function mochaCakes(suite) {
     context.When = testTypeCreator('When');
     context.Then = testTypeCreator('Then');
     context.And = testTypeCreator('And');
-    context.But = testTypeCreator('But')
+    context.But = testTypeCreator('But');
     context.it = testTypeCreator('');
   });
 }
