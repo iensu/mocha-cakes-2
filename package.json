@@ -29,8 +29,8 @@
     "url": "https://github.com/iensu/mocha-cakes-2/issues"
   },
   "homepage": "https://github.com/iensu/mocha-cakes-2#readme",
-  "dependencies": {
-    "mocha": "3.2.0"
+  "peerDependencies": {
+    "mocha": "3.x"
   },
   "devDependencies": {
     "bluebird": "3.4.6",
