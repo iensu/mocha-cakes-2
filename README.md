@@ -65,13 +65,13 @@ Replace the `require('mocha-cakes-2')` statement(s) with the `--ui mocha-cakes-2
 
 The Mocha Cakes integration adds the following functions to the global scope:
 
-* `Feature`
-  * `Scenario`
-      - `Given`
-      - `When`
-      - `Then`
-      - `And`
-      - `But`
+* `Feature | feature`
+  * `Scenario | scenario`
+      - `Given | given`
+      - `When | when`
+      - `Then | then`
+      - `And | and`
+      - `But | but`
 
 ### `.skip`
 
