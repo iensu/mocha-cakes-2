@@ -192,4 +192,43 @@ describe('Mocha Cakes', function () {
       testClauses[4].should.contain('Then');
     });
   });
+
+  describe('Lower-case aliases', function () {
+    var output;
+
+    before(function () {
+      return execTestFile('feature/sample-tests/lower-case-aliases.js')
+        .then(function (result) {
+          output = result;
+        });
+    });
+
+    it('should have the correct `feature` title', function () {
+      output.should.contain('Feature: Mocha Cakes');
+    });
+
+    it('should have the correct `scenario` title', function () {
+      output.should.contain('Scenario: Testing mocha cakes');
+    });
+
+    it('should have the correct `given` clause', function () {
+      output.should.contain('✓ Given that 1 + 1 is 2');
+    });
+
+    it('should have the correct `and` clause', function () {
+      output.should.contain('✓ And 2 + 2 is 4');
+    });
+
+    it('should have the correct `but` clause', function () {
+      output.should.contain('✓ But 2 + 3 is not 4');
+    });
+
+    it('should have the correct `when` clause', function () {
+      output.should.contain('✓ When something is true');
+    });
+
+    it('should have the correct `then` clause', function () {
+      output.should.contain('✓ Then everything should be ok');
+    });
+  });
 });

@@ -32,6 +32,15 @@ function mochaCakes(suite) {
     context.And = testTypeCreator('And');
     context.But = testTypeCreator('But');
     context.it = testTypeCreator('');
+
+    // lower-case aliases
+    context.scenario = context.Scenario;
+    context.feature = context.Feature;
+    context.given = context.Given;
+    context.when = context.When;
+    context.then = context.Then;
+    context.and = context.And;
+    context.but = context.But;
   });
 }
 
