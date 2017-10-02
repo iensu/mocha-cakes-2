@@ -3,7 +3,7 @@
   "version": "2.1.0",
   "description": "A Mocha BDD integration",
   "main": "mocha-cakes.js",
-  "typings": "index",
+  "typings": "mocha-cakes",
   "scripts": {
     "test": "mocha ./test/**/*tests.js",
     "test:watch": "mocha ./test/**/*tests.js --watch -R dot"
