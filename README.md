@@ -117,6 +117,39 @@ Feature('Some feature', () => {
 
 <img src="doc/only-v2.png" width="400" />
 
+
+### TypeScript
+
+When using TypeScript run mocha with [`mocha -r ts-node/register`](https://github.com/TypeStrong/ts-node) and write you tests like so:
+
+```
+import 'mocha-cakes-2';
+
+Feature('Some feature', () => {
+
+  Scenario('Some Scenario', () => {
+
+    let number = 2;
+
+    Given('a number', () => {
+
+    });
+    And('that number is 2', () => {
+
+    });
+
+    When('adding 40', () => {
+
+    });
+
+    Then('the number should be 42', () => {
+
+    });
+  });
+});
+```
+
+
 ## Acknowledgements
 
 Mocha Cakes 2 is heavily influenced by **quangv**'s [mocha-cakes](https://github.com/quangv/mocha-cakes/).
