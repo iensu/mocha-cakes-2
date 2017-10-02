@@ -120,7 +120,10 @@ Feature('Some feature', () => {
 
 ### TypeScript
 
-When using TypeScript run mocha with [`mocha -r ts-node/register`](https://github.com/TypeStrong/ts-node) and write you tests like so:
+The TypeScript definitions are bundled together with mocha-cakes-2.
+When using TypeScript run mocha with [`mocha -r ts-node/register ...`](https://github.com/TypeStrong/ts-node).
+
+Your tests should look like this:
 
 ```
 import 'mocha-cakes-2';
