@@ -28,6 +28,14 @@
   "bugs": {
     "url": "https://github.com/iensu/mocha-cakes-2/issues"
   },
+  "engines": {
+    "node": ">= 4.0.0"
+  },
+  "files": [
+    "mocha-cakes.js",
+    "LICENSE",
+    "README.md"
+  ],
   "homepage": "https://github.com/iensu/mocha-cakes-2#readme",
   "peerDependencies": {
     "mocha": "4.x"
