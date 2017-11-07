@@ -1,6 +1,6 @@
 {
   "name": "mocha-cakes-2",
-  "version": "2.1.0",
+  "version": "3.0.0",
   "description": "A Mocha BDD integration",
   "main": "mocha-cakes.js",
   "typings": "mocha-cakes",
@@ -29,12 +29,21 @@
   "bugs": {
     "url": "https://github.com/iensu/mocha-cakes-2/issues"
   },
+  "engines": {
+    "node": ">= 4.0.0"
+  },
+  "files": [
+    "mocha-cakes.js",
+    "LICENSE",
+    "README.md"
+  ],
   "homepage": "https://github.com/iensu/mocha-cakes-2#readme",
   "peerDependencies": {
-    "mocha": "3.x"
+    "mocha": "4.x"
   },
   "devDependencies": {
-    "bluebird": "3.4.6",
-    "chai": "3.5.0"
+    "bluebird": "^3.5.1",
+    "chai": "^4.1.2",
+    "mocha": "^4.0.1"
   }
 }
