@@ -121,7 +121,17 @@ Feature('Some feature', () => {
 ### TypeScript
 
 The TypeScript definitions are bundled together with mocha-cakes-2.
-When using TypeScript run mocha with [`mocha -r ts-node/register ...`](https://github.com/TypeStrong/ts-node).
+To use mocha directly with TypeScript you need types for mocha and [ts-node](https://github.com/TypeStrong/ts-node).
+
+```
+npm install --save-dev typescript ts-node @types/mocha
+```
+
+Now you can run it like so:
+
+```
+mocha -r ts-node/register ...
+```
 
 Your tests should look like this:
 
