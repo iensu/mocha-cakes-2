@@ -34,6 +34,7 @@
   },
   "files": [
     "mocha-cakes.js",
+    "mocha-cakes.d.ts",
     "LICENSE",
     "README.md"
   ],
