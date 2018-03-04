@@ -38,7 +38,7 @@
   ],
   "homepage": "https://github.com/iensu/mocha-cakes-2#readme",
   "peerDependencies": {
-    "mocha": "4.x"
+    "mocha": ">= 4"
   },
   "devDependencies": {
     "bluebird": "^3.5.1",
