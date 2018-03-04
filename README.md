@@ -117,6 +117,57 @@ Feature('Some feature', () => {
 
 <img src="doc/only-v2.png" width="400" />
 
+### `beforeEachScenario` and `afterEachScenario`
+
+Executes the provided function only once for each of the scenarios under the current scope.
+
+```javascript
+Feature('Some feature', () => {
+
+  beforeEachScenario( () => {
+    someSetup();
+  });
+
+  afterEachScenario( () => {
+    doCleanup();
+  });
+
+  Scenario('First scenario', () => {
+    // ...
+  });
+
+  Scenario('Second scenario', () => {
+    // ...
+  });
+
+  // ...
+});
+```
+
+### `beforeEachFeature` and `afterEachFeature`
+
+Executes the provided function only once for each of the features under the current scope.
+
+```javascript
+beforeEachFeature( () => {
+  someSetup();
+});
+
+afterEachFeature( () => {
+  doCleanup();
+});
+
+Feature('Some feature', () => {
+  // ...
+});
+
+Feature('Another feature', () => {
+  // ...
+});
+
+// ...
+```
+
 ## Acknowledgements
 
 Mocha Cakes 2 is heavily influenced by **quangv**'s [mocha-cakes](https://github.com/quangv/mocha-cakes/).
