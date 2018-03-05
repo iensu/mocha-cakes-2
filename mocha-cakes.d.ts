@@ -1,14 +1,21 @@
-declare function Feature(t: string, f: Function): any;
-declare function Scenario(t: string, f: Function): any;
-declare function Given(t: string, f: Function): any;
-declare function And(t: string, f: Function): any;
-declare function When(t: string, f: Function): any;
-declare function Then(t: string, f: Function): any;
-declare function But(t: string, f: Function): any;
-declare function feature(t: string, f: Function): any;
-declare function scenario(t: string, f: Function): any;
-declare function given(t: string, f: Function): any;
-declare function and(t: string, f: Function): any;
-declare function when(t: string, f: Function): any;
-declare function then(t: string, f: Function): any;
-declare function but(t: string, f: Function): any;
+interface MochaCakesTestFn {
+  (t: string, f: Function): any;
+  only(t: string, f: Function): any;
+  skip(t: string, f: Function): any;
+}
+
+declare var Feature: MochaCakesTestFn;
+declare var Scenario: MochaCakesTestFn;
+declare var Given: MochaCakesTestFn;
+declare var And: MochaCakesTestFn;
+declare var When: MochaCakesTestFn;
+declare var Then: MochaCakesTestFn;
+declare var But: MochaCakesTestFn;
+
+declare var feature: MochaCakesTestFn;
+declare var scenario: MochaCakesTestFn;
+declare var given: MochaCakesTestFn;
+declare var and: MochaCakesTestFn;
+declare var when: MochaCakesTestFn;
+declare var then: MochaCakesTestFn;
+declare var but: MochaCakesTestFn;
