@@ -2,6 +2,8 @@
 
 Mocha Cakes is a [Gherkin](https://github.com/cucumber/cucumber/wiki/Gherkin)/[Cucumber](https://cucumber.io/) syntax integration for the [Mocha](https://mochajs.org/) testing framework.
 
+[![Build Status](https://travis-ci.org/iensu/mocha-cakes-2.svg?branch=master)](https://travis-ci.org/iensu/mocha-cakes-2)
+
 ## Installation
 
 NPM:
