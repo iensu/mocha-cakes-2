@@ -3,6 +3,7 @@
   "version": "3.1.0",
   "description": "A Mocha BDD integration",
   "main": "mocha-cakes.js",
+  "typings": "./mocha-cakes.d.ts",
   "scripts": {
     "test": "mocha ./test/**/*tests.js",
     "test:watch": "mocha ./test/**/*tests.js --watch -R dot"
@@ -33,6 +34,7 @@
   },
   "files": [
     "mocha-cakes.js",
+    "mocha-cakes.d.ts",
     "LICENSE",
     "README.md"
   ],
