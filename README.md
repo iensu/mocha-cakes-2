@@ -127,10 +127,21 @@ To use mocha directly with TypeScript you need types for mocha and [ts-node](htt
 npm install --save-dev typescript ts-node @types/mocha
 ```
 
+You should have a `tsconfig.json` in the root of your project like so
+
+```json
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "moduleResolution": "node"
+  }
+}
+```
+
 Now you can run it like so:
 
 ```
-mocha -r ts-node/register ...
+mocha -r ts-node/register --ui mocha-cakes-2  ...
 ```
 
 Your tests should look like this:
