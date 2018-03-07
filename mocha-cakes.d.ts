@@ -1,7 +1,7 @@
 interface MochaCakesTestFn {
-  (t: string, f: Function): any;
-  only(t: string, f: Function): any;
-  skip(t: string, f: Function): any;
+  (description: string, testFn: Function): any;
+  only(description: string, testFn: Function): any;
+  skip(description: string, testFn: Function): any;
 }
 
 interface MochaCakesDone {
