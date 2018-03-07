@@ -4,6 +4,19 @@ interface MochaCakesTestFn {
   skip(t: string, f: Function): any;
 }
 
+interface MochaCakesDone {
+  (error?: any): any
+}
+
+interface MochaCakesHookCallback {
+  (done: MochaCakesDone): void;
+}
+
+interface MochaCakesHook {
+  (callback: MochaCakesHookCallback): void;
+  (description: string, callback: MochaCakesHookCallback): void;
+}
+
 declare var Feature: MochaCakesTestFn;
 declare var Scenario: MochaCakesTestFn;
 declare var Given: MochaCakesTestFn;
@@ -19,3 +32,8 @@ declare var and: MochaCakesTestFn;
 declare var when: MochaCakesTestFn;
 declare var then: MochaCakesTestFn;
 declare var but: MochaCakesTestFn;
+
+declare var afterEachFeature: MochaCakesHook;
+declare var beforeEachFeature: MochaCakesHook;
+declare var afterEachScenario: MochaCakesHook;
+declare var beforeEachScenario: MochaCakesHook;
