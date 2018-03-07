@@ -9,6 +9,16 @@ Mocha.interfaces['mocha-cakes-2'] = module.exports = mochaCakes;
 function mochaCakes(suite) {
   var suites = [suite];
 
+  function registerDescendantsHook(hookType, suiteType) {
+    var hookName = hookType + suiteType;
+
+    return function(name, fn) {
+      if (!suites[0][hookName]) suites[0][hookName] = [];
+
+      suites[0][hookName].push([name, fn]);
+    }
+  }
+
   suite.on('pre-require', function (context, file, mocha) {
     var common = require('mocha/lib/interfaces/common')(suites, context, mocha);
 
@@ -21,6 +31,11 @@ function mochaCakes(suite) {
     context.afterEach = common.afterEach;
     context.before = common.before;
     context.beforeEach = common.beforeEach;
+
+    context.afterEachFeature = registerDescendantsHook('afterEach', 'Feature');
+    context.afterEachScenario = registerDescendantsHook('afterEach', 'Scenario');
+    context.beforeEachFeature = registerDescendantsHook('beforeEach', 'Feature');
+    context.beforeEachScenario = registerDescendantsHook('beforeEach', 'Scenario');
 
     context.Scenario = wrapperCreator('Scenario');
     context.Feature = wrapperCreator('Feature');
@@ -92,6 +107,8 @@ function createWrapper(file, suites, context, mocha) {
       fn.call(suite);
       suites.shift();
 
+      applyRegisteredHooks(suite, type);
+
       return suite;
     }
 
@@ -111,4 +128,30 @@ function createWrapper(file, suites, context, mocha) {
 
     return wrapper;
   };
+}
+
+function applyRegisteredHooks(suite, suiteType) {
+  getRegisteredHooks(suite, 'beforeEach', suiteType).forEach(function(hook) {
+    suite.beforeAll(hook[0], hook[1]);
+  });
+  getRegisteredHooks(suite, 'afterEach', suiteType).forEach(function(hook) {
+    suite.afterAll(hook[0], hook[1]);
+  });
+}
+
+function getRegisteredHooks(suite, hookType, suiteType) {
+  var ancestors = [];
+  var hooks = [];
+  var parent = suite.parent;
+
+  while (parent) {
+    ancestors.push(parent);
+    parent = parent.parent;
+  }
+
+  ancestors.forEach(function(ancestor) {
+    hooks = hooks.concat( ancestor[hookType + suiteType] || [] );
+  });
+
+  return hooks;
 }

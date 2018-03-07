@@ -193,6 +193,58 @@ describe('Mocha Cakes', function () {
     });
   });
 
+  describe("A test file with Hooks per type", function () {
+
+    var output;
+
+    before(function () {
+      return execTestFile('feature/sample-tests/hooks-per-type-test.js')
+        .then(function (result) {
+          output = result;
+        });
+    });
+
+    it('should execute the beforeEachFeature clause before each feature', function () {
+      output.match(/Global beforeEachFeature/g).length.should.equal(2);
+    });
+
+    it('should execute the afterEachFeature clause after each feature', function () {
+      output.match(/Global afterEachFeature/g).length.should.equal(2);
+    });
+
+    it('should not execute the beforeEachFeature clause in absence of nested Features', function () {
+      output.should.not.match(/Feature internal beforeEachFeature/g);
+    });
+
+    it('should not execute the afterEachFeature clause in absence of nested Features', function () {
+      output.should.not.match(/Feature internal beforeEachFeature/g);
+    });
+
+    it('should execute the beforeEachScenario clause before each scenario', function () {
+      output.match(/Global beforeEachScenario/g).length.should.equal(3);
+    });
+
+    it('should execute the afterEachScenario clause after each scenario', function () {
+      output.match(/Global afterEachScenario/g).length.should.equal(3);
+    });
+
+    it('should execute the beforeEachScenario clause on nested scenarios', function () {
+      output.match(/Feature internal beforeEachScenario/g).length.should.equal(2);
+    });
+
+    it('should execute the afterEachScenario clause on nested scenario', function () {
+      output.match(/Feature internal afterEachScenario/g).length.should.equal(2);
+    });
+
+    it('should not execute the beforeEachScenario clause in absence of nested Scenarios', function () {
+      output.should.not.match(/Feature internal beforeEachFeature/g);
+    });
+
+    it('should not execute the afterEachFeature clause in absence of nested Features', function () {
+      output.should.not.match(/Feature internal beforeEachFeature/g);
+    });
+  });
+
   describe('Lower-case aliases', function () {
     var output;
 

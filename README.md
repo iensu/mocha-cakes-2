@@ -2,6 +2,8 @@
 
 Mocha Cakes is a [Gherkin](https://github.com/cucumber/cucumber/wiki/Gherkin)/[Cucumber](https://cucumber.io/) syntax integration for the [Mocha](https://mochajs.org/) testing framework.
 
+[![Build Status](https://travis-ci.org/iensu/mocha-cakes-2.svg?branch=master)](https://travis-ci.org/iensu/mocha-cakes-2)
+
 ## Installation
 
 NPM:
@@ -61,6 +63,61 @@ The common Mocha functions (`describe`, `it`, `before`, `after`, etc) are also a
 
 Replace the `require('mocha-cakes-2')` statement(s) with the `--ui mocha-cakes-2` option as described above.
 
+### TypeScript
+
+The TypeScript definitions are bundled together with mocha-cakes-2.
+To use mocha directly with TypeScript you need types for mocha and [ts-node](https://github.com/TypeStrong/ts-node).
+
+```
+npm install --save-dev typescript ts-node @types/mocha
+```
+
+You should have a `tsconfig.json` in the root of your project like so
+
+```json
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "moduleResolution": "node"
+  }
+}
+```
+
+Now you can run it like so:
+
+```
+mocha -r ts-node/register --ui mocha-cakes-2  ...
+```
+
+Your tests should look like this:
+
+```
+import 'mocha-cakes-2';
+
+Feature('Some feature', () => {
+
+  Scenario('Some Scenario', () => {
+
+    let number = 2;
+
+    Given('a number', () => {
+
+    });
+    And('that number is 2', () => {
+
+    });
+
+    When('adding 40', () => {
+
+    });
+
+    Then('the number should be 42', () => {
+
+    });
+  });
+});
+```
+
 ## API
 
 The Mocha Cakes integration adds the following functions to the global scope:
@@ -117,62 +174,56 @@ Feature('Some feature', () => {
 
 <img src="doc/only-v2.png" width="400" />
 
+### `beforeEachScenario` and `afterEachScenario`
 
-### TypeScript
+Executes the provided function only once for each of the scenarios under the current scope.
 
-The TypeScript definitions are bundled together with mocha-cakes-2.
-To use mocha directly with TypeScript you need types for mocha and [ts-node](https://github.com/TypeStrong/ts-node).
-
-```
-npm install --save-dev typescript ts-node @types/mocha
-```
-
-You should have a `tsconfig.json` in the root of your project like so
-
-```json
-{
-  "compilerOptions": {
-    "module": "commonjs",
-    "moduleResolution": "node"
-  }
-}
-```
-
-Now you can run it like so:
-
-```
-mocha -r ts-node/register --ui mocha-cakes-2  ...
-```
-
-Your tests should look like this:
-
-```
-import 'mocha-cakes-2';
-
+```javascript
 Feature('Some feature', () => {
 
-  Scenario('Some Scenario', () => {
-
-    let number = 2;
-
-    Given('a number', () => {
-
-    });
-    And('that number is 2', () => {
-
-    });
-
-    When('adding 40', () => {
-
-    });
-
-    Then('the number should be 42', () => {
-
-    });
+  beforeEachScenario( () => {
+    someSetup();
   });
+
+  afterEachScenario( () => {
+    doCleanup();
+  });
+
+  Scenario('First scenario', () => {
+    // ...
+  });
+
+  Scenario('Second scenario', () => {
+    // ...
+  });
+
+  // ...
 });
 ```
 
+### `beforeEachFeature` and `afterEachFeature`
+
+Executes the provided function only once for each of the features under the current scope.
+
+```javascript
+beforeEachFeature( () => {
+  someSetup();
+});
+
+afterEachFeature( () => {
+  doCleanup();
+});
+
+Feature('Some feature', () => {
+  // ...
+});
+
+Feature('Another feature', () => {
+  // ...
+});
+
+// ...
+```
 
 ## Acknowledgements
 
