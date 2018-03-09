@@ -150,7 +150,9 @@ function getRegisteredHooks(suite, hookType, suiteType) {
   }
 
   ancestors.forEach(function(ancestor) {
-    hooks = hooks.concat( ancestor[hookType + suiteType] || [] );
+    if (ancestor.hasOwnProperty(hookType + suiteType)) {
+      hooks = hooks.concat( ancestor[hookType + suiteType] || [] );
+    }
   });
 
   return hooks;

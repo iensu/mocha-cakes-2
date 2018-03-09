@@ -283,4 +283,59 @@ describe('Mocha Cakes', function () {
       output.should.contain('✓ Then everything should be ok');
     });
   });
+
+  describe('A describe and it test', function () {
+    var output;
+
+    before(function () {
+      return execTestFile('feature/sample-tests/describe-and-it-test.js')
+        .then(function (result) {
+          output = result;
+        });
+    });
+
+    it('should work', function () {
+      output.should.contain('✓ should work');
+    });
+
+    it('should also work', function () {
+      output.should.contain('✓ should also work');
+    });
+
+    it('should always work', function () {
+      output.should.contain('✓ should always work');
+    });
+
+    it('should execute the outer before clause', function () {
+      output.match(/outer before executed/g).length.should.equal(1);
+    });
+
+    it('should execute the outer before each clause', function () {
+      output.match(/outer before each executed/g).length.should.equal(3);
+    });
+
+    it('should execute the outer after clause', function () {
+      output.match(/outer after executed/g).length.should.equal(1);
+    });
+
+    it('should execute the outer after each clause', function () {
+      output.match(/outer after each executed/g).length.should.equal(3);
+    });
+
+    it('should execute the inner before clause', function () {
+      output.match(/inner before executed/g).length.should.equal(1);
+    });
+
+    it('should execute the inner before each clause', function () {
+      output.match(/inner before each executed/g).length.should.equal(2);
+    });
+
+    it('should execute the inner after clause', function () {
+      output.match(/inner after executed/g).length.should.equal(1);
+    });
+
+    it('should execute the inner after each clause', function () {
+      output.match(/inner after each executed/g).length.should.equal(2);
+    });
+  });
 });
