@@ -47,6 +47,7 @@ function mochaCakes(suite) {
     context.And = testTypeCreator('And');
     context.But = testTypeCreator('But');
     context.it = testTypeCreator('');
+    context.xit = context.it.skip;
 
     // lower-case aliases
     context.scenario = context.Scenario;

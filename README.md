@@ -15,17 +15,42 @@ npm install --save-dev mocha-cakes-2
 
 ## Usage
 
-You need to specify `mocha-cakes-2` as a mocha integration by adding the option `--ui mocha-cakes-2` to your `mocha` command:
+### Enable the mocha-cakes-2 integration
+
+To enable the Mocha integration you need to specify `mocha-cakes-2` in the `ui` option.
+
+#### CLI
+
+Either use the command line argument:
 
 ``` javascript
 mocha --ui mocha-cakes-2 path/to/my/tests
 ```
 
-You can also specify it in your [`mocha.opts`](https://mochajs.org/#mochaopts) file:
+Or set it in your [`mocha.opts`](https://mochajs.org/#mochaopts) file:
 
 ``` javascript
 --ui mocha-cakes-2
 ```
+
+#### API
+
+Either pass it in the options as you construct Mocha:
+
+``` javascript
+var mocha = new Mocha({
+  ui: 'mocha-cakes-2'
+});
+```
+
+Or set it after you've constructed Mocha:
+
+``` javascript
+var mocha = new Mocha();
+mocha.ui('mocha-cakes-2')
+```
+
+### Test structure
 
 ```javascript
 require('chai').should();
@@ -225,6 +250,16 @@ Feature('Another feature', () => {
 
 // ...
 ```
+
+## Development
+
+### Testing the CLI and API interfaces
+
+If you use Mocha directly to run the tests you can set the `MOCHA_INTERFACE` environment variable to either `cli` or `api` to choose which Mocha interface to run the tests with: `MOCHA_INTERFACE=api mocha test/feature/tests.js`.
+
+`MOCHA_INTERFACE` will default to `cli` if no value is set.
+
+When you run `npm run test:cli` or `npm run test:api` (or `npm test` to run them both), `MOCHA_INTERFACE` is set automatically to the appropriate value.
 
 ## Acknowledgements
 
