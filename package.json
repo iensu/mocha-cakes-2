@@ -5,7 +5,9 @@
   "main": "mocha-cakes.js",
   "typings": "./mocha-cakes.d.ts",
   "scripts": {
-    "test": "mocha ./test/**/*tests.js",
+    "test": "npm run test:cli && npm run test:api",
+    "test:cli": "MOCHA_INTERFACE=cli mocha ./test/**/*tests.js",
+    "test:api": "MOCHA_INTERFACE=api node ./test/run-api.js",
     "test:watch": "mocha ./test/**/*tests.js --watch -R dot"
   },
   "repository": {
